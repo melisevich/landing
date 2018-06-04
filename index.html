@@ -2,123 +2,509 @@
 <html>
     <head>
         <meta charset="UTF-8">
-        <title>Embody: 3D Editor</title>
+        <title>My Assets</title>
         <link rel="stylesheet" href="style.css">
-        <link href="fonts/SF-Pro-Display-Regular.otf;
+        <link href="fonts/Fontfabric-UniNeueRegular.otf;
                     fonts/SF-Pro-Display-Light.otf;
                     fonts/SF-Pro-Display-Medium.otf)" rel="stylesheet">
     </head>
-    <body>
-        <header>
-            <div class="logo">
-                <p>DataArt</p>
-            </div>
-            <nav class="main-nav" id="navigation">
-                <a href="#">Services</a>
-                <a href="#">Portfolio</a>
-                <a href="#">Career</a>
-                <a href="#">Highlights</a>
-                <a href="#">Contacts</a>
-                <a href="#" class="button">Demo</a>
-            </nav>
-        </header>
-        <main class="main-about">
-            <div></div>
-            <h1>HIP Replacement Planner</h1><br>
-            <span class="h1-description">iPad Applicatation</span>
-            <div class="wrapper">
-                <div class="about">
-                    <p>
-                        Prototypes breathe life into any design and provide a great deal of insight into the 
-                        user interaction at various levels. Not only do prototypes allow us to test the 
-                        feasibility and usability of our designs before we actually begin writing code, they 
-                        also lead to unexpected discoveries and innovations that may or may not take our project 
-                        beyond its initial scope.
-                    </p>
-                    <div class="first_preview">
-                        <img src="" alt="">
-                    </div>
+    <header>
+            <nav>
+                <ul class="list-inline">
+                    <li>
+                        <a href="https://www.mastercard.us/en-us.html" target="_self" title="MasterCard home page">
+                            Home
+                        </a>
+                    </li>
+                    <li>
+                        <a href="https://www.mastercard.us/en-us/about-mastercard.html" target="_self"
+                           title="Navigate to the About Mastercard section">
+                            About Mastercard
+                        </a>
+                    </li>
+                    <li>
+                        <a href="https://www.mastercard.us/en-us/about-mastercard/careers.html" target="_self"
+                           title="Navigate to the MasterCard careers page">
+                            Careers
+                        </a>
+                    </li>
+                    <li>
+                        <a href="http://newsroom.mastercard.com/" target="_blank"
+                           title="Navigate to the MasterCard Newsroom site">
+                            Newsroom
+                        </a>
+                    </li>
+                    <li>
+                        <a href="http://investorrelations.mastercardintl.com/" target="_blank"
+                           title="Navigate to the MasterCard Investor Relations site">
+                            Investor Relations
+                        </a>
+                    </li>
+                </ul>
+                <div class="component-config" data-country-language-path="/content/mccom-admin/country-language-admin/_jcr_content/contentpar/list.country-language.json"
+                      data-default-region="North America" data-default-country="United States"
+                      data-default-country-language="United States - English">
                 </div>
-                <div class="quote">
-                    <p>
-                        The major benefit is the preoperative planning and defect analysis that really prepares 
-                        one for surgery. No surprises during surgery is great <br>
-                        — Kerry Nielsen
-                    </p>
+                <div>
+                    <a href="https://www.mastercard.us/en-us/about-mastercard.html#" 
+                       class="country-language-selector">
+                        <img class="country-flag" src="https://www.mastercard.us/en-us/about-mastercard.html"
+                             alt="">
+                        <span class="language">English</span>
+                    </a>
                 </div>
-                <div class="points">
-                    <div class="point-item">
-                        <h4>1</h4>
-                        <div>
-                            <p>
-                                Prototypes breathe life into any design and provide a great deal of insight into 
-                                the user interaction at various levels
-                            </p>
+                <div class="search-module">
+                    <div class="component-config" data-results-endpoint="https://www.mastercard.us/search"
+                         data-suggestions-endpoint="https://www.mastercard.us/suggest" data-gsa-client-id="mastercard_us"
+                         data-gsa-site-id="mastercard_us">
+                    </div> 
+                    <div class="search-controller ng-scope" ng-controller="SearchController">
+                        <div class="form-wrapper typing" ng-class="{ typing: (total === null &amp;&amp; !hasErrors) }">
+                            <form ng-submit="newSearch()" class="ng-pristine ng-valid">
+                                <div class="autosuggest-wrapper ng-isolate-scope" autocomplete=""
+                                     submit="newSearch" fetch="getSuggestions" value="query">
+                                    <div class="autocomplete-input">
+                                        <input ng-model="topSuggestion" ng-show="suggestionIndex === -1" type="text"
+                                            class="top-suggestion ng-pristine ng-valid" unselectable="on" readonly="readOnly">
+                                        <input class="fake-placeholder" unselectable="on" readonly="readOnly">
+                                        <input ng-model="tempValue" ng-keydown="onKeyDown($event)" ng-keyup="onKeyUp($event)"
+                                            type="text" class="query ng-pristine ng-valid" placeholder="Search">
+                                        <button ng-click="clickSearch()" class="search-btn">
+                                            <span class="sr-only"></span>
+                                        </button>
+                                    </div>
+                                    <ul class="suggestions">
+                                        <!-- ngRepeat: suggestion in suggestions -->
+                                    </ul>
+                                </div>
+                            </form>
                         </div>
-                    </div>
-                    <div class="point-item">
-                        <h4>2</h4>
-                        <div>
-                            <p>
-                                Prototypes breathe life into any design and provide a great deal of insight into 
-                                the user interaction at various levels
-                            </p>
-                        </div>
-                    </div>
-                    <div class="point-item">
-                            <h4>3</h4>
-                            <div>
-                                <p>
-                                    Prototypes breathe life into any design and provide a great deal of insight into 
-                                    the user interaction at various levels
-                                </p>
+                        <div class="row" ng-class="{ resultsWrapper: (results.length &gt; 0) || hasErrors || total === 0 }">
+                            <!-- ngIf: hasErrors -->
+                            <!-- ngIf: total === 0 -->
+                            <!-- ngIf: results.length > 0 -->
+                            <div class="results">
+                                <!-- ngRepeat: result in results -->
                             </div>
                         </div>
+                        <div pagination="" current="page" total="total" max="5" per-page="8" class="ng-isolate-scope">
+                                <div class="pagination ng-hide" ng-show="pages.length &gt; 0">
+                                    <ul>
+                                        <li ng-click="prev()" ng-class="{disabled: current == 1}" class="item_prev disabled">
+                                            <span class="sr-only">Previous</span>
+                                        </li>
+                                        <!-- ngRepeat: page in pages -->
+                                        <li ng-click="next()" ng-class="{disabled: current == pageCount}" class="item_next">
+                                            <span class="sr-only">Next</span>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div></div>
+            </nav>
+            <nav class="main-nav" role="navigation">
+                <div class="logo">
+                    <div>
+                        <img src="/etc/designs/mccom/en-us/jcr:content/global/logo.img.png/1472151229727.png" alt="mastercard-logo">
+                    </div>
+                    <div class="image hidden-xs hidden-sm">
+                         <a href="https://www.mastercard.us/en-us.html" title="MasterCard logo">
+                            <div data-picture="">
+                                <div
+                                    data-src="/etc/designs/mccom/en-us/jcr:content/global/logo.img.png/1472151229727.png" data-media="">
+                                </div>
+                                <img src="./About Mastercard _ Smart &amp; Secure Payment Solutions_files/1472151229727.png">
+                            </div>
+                        </a>
+                    </div>
+                    <div class="image hidden-md hidden-lg">
+                    <a href="https://www.mastercard.us/en-us.html" title="MasterCard logo">
+                        <div data-picture="">
+                            <div
+                                data-src="/content/dam/mccom/en-us/Brand 2.0/ma-homepage-mobile-logo-103x45.png" data-media="">
+                            </div>
+                            <noscript>
+                                &lt;img src='/etc/designs/mccom/en-us/_jcr_content/global/logo/mobile.adaptive.320.low.png/1472151231336.png'&gt;
+                            </noscript>
+                            <img src="./About Mastercard _ Smart &amp; Secure Payment Solutions_files/ma-homepage-mobile-logo-103x45.png">
+                        </div>
+                    </a> 
+                    </div>
+                
+                
                 </div>
-                <div>
-                    <p>
-                        Prototypes breathe life into any design and provide a great deal of insight into the user 
-                        interaction at various levels. Not only do prototypes allow us to test the feasibility and 
-                        usability of our designs before we actually begin writing code, they also lead to unexpected 
-                        discoveries and innovations that may or may not take our project beyond its initial scope.
-                    </p>
+                
+                    <div class="search-header">
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                <div class="component-config" data-search-path="/en-us/search-results/_jcr_content/contentpar/search"></div>
+                
+                <a id="search-open" href="https://www.mastercard.us/en-us/about-mastercard.html#" title="Search Icon hit enter to continue and then go up">
+                    
+                </a></div>
+                
+                
+                    <a href="https://www.mastercard.us/en-us/about-mastercard.html#" class="mobile-menu-btn">Menu</a>
+                    <a href="https://www.mastercard.us/en-us/about-mastercard.html#content" class="jump-to sr-only sr-only-focusable" data-target="#content">Skip to Content</a>
+                    
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                <div class="menu menu-mega">
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                <div id="mega-menu-content-module" class="menu-list-wrapper mega-menu-content-module ng-scope" ng-controller="menu" data-menu-path="/en-us/about-mastercard/_jcr_content/headernav.tree.json" role="navigation">
+                
+                    <ul class="menu accessible-megamenu">
+                        
+                
+                        
+                        
+                            
+                            
+                            
+                                <li class="mega-menu__audience-picker has-children accessible-megamenu-top-nav-item">
+                                    <a href="https://www.mastercard.us/en-us/about-mastercard.html" data-text="About Mastercard" id="accessible-megamenu-1527747160553-1" aria-haspopup="true" aria-controls="accessible-megamenu-1527747160553-2" aria-expanded="false" class="">
+                                        <span>About Mastercard</span>
+                                        <!-- <div class="active-arrow"></div> -->
+                                    </a>
+                                    <div class="mega-menu__dropdown accessible-megamenu-panel" id="accessible-megamenu-1527747160553-2" role="group" aria-expanded="false" aria-hidden="true" aria-labelledby="accessible-megamenu-1527747160553-1">
+                                        <!-- NonAudience dropdown declared separately so absolute position isn't constrained by .headpage's relative -->
+                                        <ul role="menu">
+                                            
+                                                
+                                                    <li><a href="https://www.mastercard.us/en-us/consumers.html">Consumers</a></li>
+                                                
+                                                    <li><a href="https://www.mastercard.us/en-us/businesses.html">Businesses</a></li>
+                                                
+                                                    <li><a href="https://www.mastercard.us/en-us/governments.html">Governments &amp; Public Sector</a></li>
+                                                
+                                                    <li><a href="https://www.mastercard.us/en-us/merchants.html">Merchants</a></li>
+                                                
+                                                    <li><a href="https://www.mastercard.us/en-us/issuers.html">Issuers &amp; Other Partners</a></li>
+                                                
+                                            
+                                        </ul>
+                                    </div>
+                                </li>
+                            
+                        
+                
+                        
+                            <li class="main-nav-item accessible-megamenu-top-nav-item has-children" ng-class="{ &#39;has-children&#39;: pages[0].children }">
+                
+                                <a href="https://www.mastercard.us/en-us/about-mastercard/who-we-are.html" data-text="Who We Are" ng-class="{ &#39;active&#39;: isInPath(pages[0].url) }" id="accessible-megamenu-1527747160556-3" aria-haspopup="true" aria-controls="accessible-megamenu-1527747160556-4" aria-expanded="false">
+                                    <span class="mainNav" data-href="">Who We Are</span>
+                                    <!-- <div class="active-arrow"></div> -->
+                                </a>
+                                <div class="accessible-megamenu-panel mega-menu__dropdown ng-isolate-scope" dropdown="" promo-path="&#39;&#39;" page="pages[0]" id="accessible-megamenu-1527747160556-4" role="group" aria-expanded="false" aria-hidden="true" aria-labelledby="accessible-megamenu-1527747160556-3" style="height: 328px;">
+                        <!-- ngIf: page.children --><ul class="mega-menu__sub-menu--base mega-menu__sub-menu ng-scope ng-isolate-scope" sub-menu="" page="page" ng-if="page.children" style="height: 328px;">
+                        <!-- ngRepeat: subpage in page.children --><li class="sub-menu__item ng-scope" ng-repeat="subpage in page.children" ng-class="{ &#39;has-child-menu&#39;: subpage.children.length }">
+                
+                            <a class="sub-menu-option ng-binding" ng-href="/en-us/about-mastercard/who-we-are/vision-mission-values.html" href="https://www.mastercard.us/en-us/about-mastercard/who-we-are/vision-mission-values.html">Vision/Mission/Values</a>
+                            <!-- ngIf: subpage.children -->
+                            <div class="mega-menu__dropdown-divider"></div>
+                        </li><!-- end ngRepeat: subpage in page.children --><li class="sub-menu__item ng-scope" ng-repeat="subpage in page.children" ng-class="{ &#39;has-child-menu&#39;: subpage.children.length }">
+                
+                            <a class="sub-menu-option ng-binding" ng-href="/en-us/about-mastercard/who-we-are/history.html" href="https://www.mastercard.us/en-us/about-mastercard/who-we-are/history.html">History</a>
+                            <!-- ngIf: subpage.children -->
+                            <div class="mega-menu__dropdown-divider"></div>
+                        </li><!-- end ngRepeat: subpage in page.children --><li class="sub-menu__item ng-scope" ng-repeat="subpage in page.children" ng-class="{ &#39;has-child-menu&#39;: subpage.children.length }">
+                
+                            <a class="sub-menu-option ng-binding" ng-href="/en-us/about-mastercard/who-we-are/innovation.html" href="https://www.mastercard.us/en-us/about-mastercard/who-we-are/innovation.html">Innovation</a>
+                            <!-- ngIf: subpage.children -->
+                            <div class="mega-menu__dropdown-divider"></div>
+                        </li><!-- end ngRepeat: subpage in page.children --><li class="sub-menu__item ng-scope" ng-repeat="subpage in page.children" ng-class="{ &#39;has-child-menu&#39;: subpage.children.length }">
+                
+                            <a class="sub-menu-option ng-binding" ng-href="/en-us/about-mastercard/who-we-are/executive-management.html" href="https://www.mastercard.us/en-us/about-mastercard/who-we-are/executive-management.html">Mastercard Management Committee</a>
+                            <!-- ngIf: subpage.children -->
+                            <div class="mega-menu__dropdown-divider"></div>
+                        </li><!-- end ngRepeat: subpage in page.children --><li class="sub-menu__item ng-scope" ng-repeat="subpage in page.children" ng-class="{ &#39;has-child-menu&#39;: subpage.children.length }">
+                
+                            <a class="sub-menu-option ng-binding" ng-href="/en-us/about-mastercard/who-we-are/diversity-inclusion.html" href="https://www.mastercard.us/en-us/about-mastercard/who-we-are/diversity-inclusion.html">Diversity and Inclusion</a>
+                            <!-- ngIf: subpage.children -->
+                            <div class="mega-menu__dropdown-divider"></div>
+                        </li><!-- end ngRepeat: subpage in page.children --><li class="sub-menu__item ng-scope" ng-repeat="subpage in page.children" ng-class="{ &#39;has-child-menu&#39;: subpage.children.length }">
+                
+                            <a class="sub-menu-option ng-binding" ng-href="/en-us/about-mastercard/who-we-are/awards.html" href="https://www.mastercard.us/en-us/about-mastercard/who-we-are/awards.html">Awards</a>
+                            <!-- ngIf: subpage.children -->
+                            <div class="mega-menu__dropdown-divider"></div>
+                        </li><!-- end ngRepeat: subpage in page.children --><li class="sub-menu__item ng-scope" ng-repeat="subpage in page.children" ng-class="{ &#39;has-child-menu&#39;: subpage.children.length }">
+                
+                            <a class="sub-menu-option ng-binding" ng-href="/en-us/about-mastercard/who-we-are/global-locations.html" href="https://www.mastercard.us/en-us/about-mastercard/who-we-are/global-locations.html">Global Locations</a>
+                            <!-- ngIf: subpage.children -->
+                            <div class="mega-menu__dropdown-divider"></div>
+                        </li><!-- end ngRepeat: subpage in page.children --><li class="sub-menu__item ng-scope" ng-repeat="subpage in page.children" ng-class="{ &#39;has-child-menu&#39;: subpage.children.length }">
+                
+                            <a class="sub-menu-option ng-binding" ng-href="/en-us/about-mastercard/who-we-are/our-brand-evolution.html" href="https://www.mastercard.us/en-us/about-mastercard/who-we-are/our-brand-evolution.html">Our Brand Evolution</a>
+                            <!-- ngIf: subpage.children -->
+                            <div class="mega-menu__dropdown-divider"></div>
+                        </li><!-- end ngRepeat: subpage in page.children -->
+                    </ul><!-- end ngIf: page.children -->
+                        <!-- ngIf: promoPath -->
+                    </div>
+                            </li>
+                        
+                            <li class="main-nav-item accessible-megamenu-top-nav-item has-children" ng-class="{ &#39;has-children&#39;: pages[1].children }">
+                
+                                <a href="https://www.mastercard.us/en-us/about-mastercard/what-we-do.html" data-text="What We Do" ng-class="{ &#39;active&#39;: isInPath(pages[1].url) }" id="accessible-megamenu-1527747160558-5" aria-haspopup="true" aria-controls="accessible-megamenu-1527747160558-6" aria-expanded="false">
+                                    <span class="mainNav" data-href="">What We Do</span>
+                                    <!-- <div class="active-arrow"></div> -->
+                                </a>
+                                <div class="accessible-megamenu-panel mega-menu__dropdown ng-isolate-scope" dropdown="" promo-path="&#39;&#39;" page="pages[1]" id="accessible-megamenu-1527747160558-6" role="group" aria-expanded="false" aria-hidden="true" aria-labelledby="accessible-megamenu-1527747160558-5" style="height: 472px;">
+                        <!-- ngIf: page.children --><ul class="mega-menu__sub-menu--base mega-menu__sub-menu ng-scope ng-isolate-scope" sub-menu="" page="page" ng-if="page.children" style="height: 472px;">
+                        <!-- ngRepeat: subpage in page.children --><li class="sub-menu__item ng-scope" ng-repeat="subpage in page.children" ng-class="{ &#39;has-child-menu&#39;: subpage.children.length }">
+                
+                            <a class="sub-menu-option ng-binding" ng-href="/en-us/about-mastercard/what-we-do/safety-security.html" href="https://www.mastercard.us/en-us/about-mastercard/what-we-do/safety-security.html">Safety &amp; Security</a>
+                            <!-- ngIf: subpage.children -->
+                            <div class="mega-menu__dropdown-divider"></div>
+                        </li><!-- end ngRepeat: subpage in page.children --><li class="sub-menu__item ng-scope" ng-repeat="subpage in page.children" ng-class="{ &#39;has-child-menu&#39;: subpage.children.length }">
+                
+                            <a class="sub-menu-option ng-binding" ng-href="/en-us/about-mastercard/what-we-do/products-solutions.html" href="https://www.mastercard.us/en-us/about-mastercard/what-we-do/products-solutions.html">Payment Products &amp; Solutions</a>
+                            <!-- ngIf: subpage.children -->
+                            <div class="mega-menu__dropdown-divider"></div>
+                        </li><!-- end ngRepeat: subpage in page.children --><li class="sub-menu__item ng-scope" ng-repeat="subpage in page.children" ng-class="{ &#39;has-child-menu&#39;: subpage.children.length }">
+                
+                            <a class="sub-menu-option ng-binding" ng-href="/en-us/about-mastercard/what-we-do/payment-processing.html" href="https://www.mastercard.us/en-us/about-mastercard/what-we-do/payment-processing.html">Payment Processing</a>
+                            <!-- ngIf: subpage.children -->
+                            <div class="mega-menu__dropdown-divider"></div>
+                        </li><!-- end ngRepeat: subpage in page.children --><li class="sub-menu__item ng-scope" ng-repeat="subpage in page.children" ng-class="{ &#39;has-child-menu&#39;: subpage.children.length }">
+                
+                            <a class="sub-menu-option ng-binding" ng-href="/en-us/about-mastercard/what-we-do/advisors.html" href="https://www.mastercard.us/en-us/about-mastercard/what-we-do/advisors.html">Mastercard Advisors</a>
+                            <!-- ngIf: subpage.children -->
+                            <div class="mega-menu__dropdown-divider"></div>
+                        </li><!-- end ngRepeat: subpage in page.children --><li class="sub-menu__item ng-scope" ng-repeat="subpage in page.children" ng-class="{ &#39;has-child-menu&#39;: subpage.children.length }">
+                
+                            <a class="sub-menu-option ng-binding" ng-href="/en-us/about-mastercard/what-we-do/global-smart-cities.html" href="https://www.mastercard.us/en-us/about-mastercard/what-we-do/global-smart-cities.html">Smart Cities</a>
+                            <!-- ngIf: subpage.children -->
+                            <div class="mega-menu__dropdown-divider"></div>
+                        </li><!-- end ngRepeat: subpage in page.children --><li class="sub-menu__item ng-scope" ng-repeat="subpage in page.children" ng-class="{ &#39;has-child-menu&#39;: subpage.children.length }">
+                
+                            <a class="sub-menu-option ng-binding" ng-href="/en-us/about-mastercard/what-we-do/sponsorships.html" href="https://www.mastercard.us/en-us/about-mastercard/what-we-do/sponsorships.html">Sponsorships</a>
+                            <!-- ngIf: subpage.children -->
+                            <div class="mega-menu__dropdown-divider"></div>
+                        </li><!-- end ngRepeat: subpage in page.children --><li class="sub-menu__item ng-scope" ng-repeat="subpage in page.children" ng-class="{ &#39;has-child-menu&#39;: subpage.children.length }">
+                
+                            <a class="sub-menu-option ng-binding" ng-href="/en-us/about-mastercard/what-we-do/supplier-diversity.html" href="https://www.mastercard.us/en-us/about-mastercard/what-we-do/supplier-diversity.html">Supplier Diversity Program</a>
+                            <!-- ngIf: subpage.children -->
+                            <div class="mega-menu__dropdown-divider"></div>
+                        </li><!-- end ngRepeat: subpage in page.children --><li class="sub-menu__item ng-scope" ng-repeat="subpage in page.children" ng-class="{ &#39;has-child-menu&#39;: subpage.children.length }">
+                
+                            <a class="sub-menu-option ng-binding" ng-href="/en-us/about-mastercard/what-we-do/interchange.html" href="https://www.mastercard.us/en-us/about-mastercard/what-we-do/interchange.html">Interchange</a>
+                            <!-- ngIf: subpage.children -->
+                            <div class="mega-menu__dropdown-divider"></div>
+                        </li><!-- end ngRepeat: subpage in page.children --><li class="sub-menu__item ng-scope" ng-repeat="subpage in page.children" ng-class="{ &#39;has-child-menu&#39;: subpage.children.length }">
+                
+                            <a class="sub-menu-option ng-binding" ng-href="/en-us/about-mastercard/what-we-do/rules.html" href="https://www.mastercard.us/en-us/about-mastercard/what-we-do/rules.html">Rules</a>
+                            <!-- ngIf: subpage.children -->
+                            <div class="mega-menu__dropdown-divider"></div>
+                        </li><!-- end ngRepeat: subpage in page.children --><li class="sub-menu__item ng-scope has-child-menu" ng-repeat="subpage in page.children" ng-class="{ &#39;has-child-menu&#39;: subpage.children.length }">
+                
+                            <a class="sub-menu-option ng-binding" ng-href="/en-us/about-mastercard/what-we-do/privacy.html" href="https://www.mastercard.us/en-us/about-mastercard/what-we-do/privacy.html">Global Privacy Notice</a>
+                            <!-- ngIf: subpage.children --><ul class="mega-menu__sub-menu ng-scope ng-isolate-scope" sub-menu="" page="subpage" ng-if="subpage.children" style="height: 472px;">
+                        <!-- ngRepeat: subpage in page.children --><li class="sub-menu__item ng-scope" ng-repeat="subpage in page.children" ng-class="{ &#39;has-child-menu&#39;: subpage.children.length }">
+                
+                            <a class="sub-menu-option ng-binding" ng-href="/en-us/about-mastercard/what-we-do/privacy/web-analytics-opt-out.html" href="https://www.mastercard.us/en-us/about-mastercard/what-we-do/privacy/web-analytics-opt-out.html">Web Analytics Opt-Out</a>
+                            <!-- ngIf: subpage.children -->
+                            <div class="mega-menu__dropdown-divider"></div>
+                        </li><!-- end ngRepeat: subpage in page.children --><li class="sub-menu__item ng-scope" ng-repeat="subpage in page.children" ng-class="{ &#39;has-child-menu&#39;: subpage.children.length }">
+                
+                            <a class="sub-menu-option ng-binding" ng-href="/en-us/about-mastercard/what-we-do/privacy/email-opt-out.html" href="https://www.mastercard.us/en-us/about-mastercard/what-we-do/privacy/email-opt-out.html">Marketing E-Mail Opt-Out</a>
+                            <!-- ngIf: subpage.children -->
+                            <div class="mega-menu__dropdown-divider"></div>
+                        </li><!-- end ngRepeat: subpage in page.children --><li class="sub-menu__item ng-scope" ng-repeat="subpage in page.children" ng-class="{ &#39;has-child-menu&#39;: subpage.children.length }">
+                
+                            <a class="sub-menu-option ng-binding" ng-href="/en-us/about-mastercard/what-we-do/privacy/data-analytics-opt-out.html" href="https://www.mastercard.us/en-us/about-mastercard/what-we-do/privacy/data-analytics-opt-out.html">Data Analytics Opt-Out</a>
+                            <!-- ngIf: subpage.children -->
+                            <div class="mega-menu__dropdown-divider"></div>
+                        </li><!-- end ngRepeat: subpage in page.children --><li class="sub-menu__item ng-scope" ng-repeat="subpage in page.children" ng-class="{ &#39;has-child-menu&#39;: subpage.children.length }">
+                
+                            <a class="sub-menu-option ng-binding" ng-href="/en-us/about-mastercard/what-we-do/privacy/ess-privacy.html" href="https://www.mastercard.us/en-us/about-mastercard/what-we-do/privacy/ess-privacy.html">Fraud &amp; Security Notice</a>
+                            <!-- ngIf: subpage.children -->
+                            <div class="mega-menu__dropdown-divider"></div>
+                        </li><!-- end ngRepeat: subpage in page.children -->
+                    </ul><!-- end ngIf: subpage.children -->
+                            <div class="mega-menu__dropdown-divider"></div>
+                        </li><!-- end ngRepeat: subpage in page.children --><li class="sub-menu__item ng-scope has-child-menu" ng-repeat="subpage in page.children" ng-class="{ &#39;has-child-menu&#39;: subpage.children.length }">
+                
+                            <a class="sub-menu-option ng-binding" ng-href="/en-us/about-mastercard/what-we-do/terms-of-use.html" href="https://www.mastercard.us/en-us/about-mastercard/what-we-do/terms-of-use.html">Terms of Use</a>
+                            <!-- ngIf: subpage.children --><ul class="mega-menu__sub-menu ng-scope ng-isolate-scope" sub-menu="" page="subpage" ng-if="subpage.children" style="height: 472px;">
+                        <!-- ngRepeat: subpage in page.children --><li class="sub-menu__item ng-scope" ng-repeat="subpage in page.children" ng-class="{ &#39;has-child-menu&#39;: subpage.children.length }">
+                
+                            <a class="sub-menu-option ng-binding" ng-href="/en-us/about-mastercard/what-we-do/terms-of-use/zero-liability-terms-conditions.html" href="https://www.mastercard.us/en-us/about-mastercard/what-we-do/terms-of-use/zero-liability-terms-conditions.html">Zero Liability Terms &amp; Conditions</a>
+                            <!-- ngIf: subpage.children -->
+                            <div class="mega-menu__dropdown-divider"></div>
+                        </li><!-- end ngRepeat: subpage in page.children --><li class="sub-menu__item ng-scope" ng-repeat="subpage in page.children" ng-class="{ &#39;has-child-menu&#39;: subpage.children.length }">
+                
+                            <a class="sub-menu-option ng-binding" ng-href="/en-us/about-mastercard/what-we-do/terms-of-use/world-travel-terms-and-conditions.html" href="https://www.mastercard.us/en-us/about-mastercard/what-we-do/terms-of-use/world-travel-terms-and-conditions.html">World and World Elite Mastercard Travel Terms &amp; Conditions</a>
+                            <!-- ngIf: subpage.children -->
+                            <div class="mega-menu__dropdown-divider"></div>
+                        </li><!-- end ngRepeat: subpage in page.children --><li class="sub-menu__item ng-scope" ng-repeat="subpage in page.children" ng-class="{ &#39;has-child-menu&#39;: subpage.children.length }">
+                
+                            <a class="sub-menu-option ng-binding" ng-href="/en-us/about-mastercard/what-we-do/terms-of-use/us-trademarks.html" href="https://www.mastercard.us/en-us/about-mastercard/what-we-do/terms-of-use/us-trademarks.html">U.S. Trademarks</a>
+                            <!-- ngIf: subpage.children -->
+                            <div class="mega-menu__dropdown-divider"></div>
+                        </li><!-- end ngRepeat: subpage in page.children -->
+                    </ul><!-- end ngIf: subpage.children -->
+                            <div class="mega-menu__dropdown-divider"></div>
+                        </li><!-- end ngRepeat: subpage in page.children --><li class="sub-menu__item ng-scope" ng-repeat="subpage in page.children" ng-class="{ &#39;has-child-menu&#39;: subpage.children.length }">
+                
+                            <a class="sub-menu-option ng-binding" ng-href="/en-us/about-mastercard/what-we-do/anti-piracy-policy.html" href="https://www.mastercard.us/en-us/about-mastercard/what-we-do/anti-piracy-policy.html">Anti-Piracy Policy</a>
+                            <!-- ngIf: subpage.children -->
+                            <div class="mega-menu__dropdown-divider"></div>
+                        </li><!-- end ngRepeat: subpage in page.children -->
+                    </ul><!-- end ngIf: page.children -->
+                        <!-- ngIf: promoPath -->
+                    </div>
+                            </li>
+                        
+                            <li class="main-nav-item accessible-megamenu-top-nav-item has-children" ng-class="{ &#39;has-children&#39;: pages[2].children }">
+                
+                                <a href="https://www.mastercard.us/en-us/about-mastercard/corp-responsibility.html" data-text="Being a Responsible Company" ng-class="{ &#39;active&#39;: isInPath(pages[2].url) }" id="accessible-megamenu-1527747160560-7" aria-haspopup="true" aria-controls="accessible-megamenu-1527747160560-8" aria-expanded="false" class="">
+                                    <span class="mainNav" data-href="">Being a Responsible Company</span>
+                                    <!-- <div class="active-arrow"></div> -->
+                                </a>
+                                <div class="accessible-megamenu-panel mega-menu__dropdown ng-isolate-scope" dropdown="" promo-path="&#39;&#39;" page="pages[2]" id="accessible-megamenu-1527747160560-8" role="group" aria-expanded="false" aria-hidden="true" aria-labelledby="accessible-megamenu-1527747160560-7" style="height: 242px;">
+                        <!-- ngIf: page.children --><ul class="mega-menu__sub-menu--base mega-menu__sub-menu ng-scope ng-isolate-scope" sub-menu="" page="page" ng-if="page.children" style="height: 242px;">
+                        <!-- ngRepeat: subpage in page.children --><li class="sub-menu__item ng-scope has-child-menu" ng-repeat="subpage in page.children" ng-class="{ &#39;has-child-menu&#39;: subpage.children.length }">
+                
+                            <a class="sub-menu-option ng-binding" ng-href="/en-us/about-mastercard/corp-responsibility/social-sustainability.html" href="https://www.mastercard.us/en-us/about-mastercard/corp-responsibility/social-sustainability.html">Social Sustainability</a>
+                            <!-- ngIf: subpage.children --><ul class="mega-menu__sub-menu ng-scope ng-isolate-scope" sub-menu="" page="subpage" ng-if="subpage.children" style="height: 242px;">
+                        <!-- ngRepeat: subpage in page.children --><li class="sub-menu__item ng-scope" ng-repeat="subpage in page.children" ng-class="{ &#39;has-child-menu&#39;: subpage.children.length }">
+                
+                            <a class="sub-menu-option ng-binding" ng-href="/en-us/about-mastercard/corp-responsibility/social-sustainability/corporate-philanthropy-volunteering.html" href="https://www.mastercard.us/en-us/about-mastercard/corp-responsibility/social-sustainability/corporate-philanthropy-volunteering.html">Corporate Philanthropy &amp; Volunteering</a>
+                            <!-- ngIf: subpage.children -->
+                            <div class="mega-menu__dropdown-divider"></div>
+                        </li><!-- end ngRepeat: subpage in page.children --><li class="sub-menu__item ng-scope" ng-repeat="subpage in page.children" ng-class="{ &#39;has-child-menu&#39;: subpage.children.length }">
+                
+                            <a class="sub-menu-option ng-binding" ng-href="/en-us/about-mastercard/corp-responsibility/social-sustainability/international-development.html" href="https://www.mastercard.us/en-us/about-mastercard/corp-responsibility/social-sustainability/international-development.html">International Development</a>
+                            <!-- ngIf: subpage.children -->
+                            <div class="mega-menu__dropdown-divider"></div>
+                        </li><!-- end ngRepeat: subpage in page.children --><li class="sub-menu__item ng-scope" ng-repeat="subpage in page.children" ng-class="{ &#39;has-child-menu&#39;: subpage.children.length }">
+                
+                            <a class="sub-menu-option ng-binding" ng-href="/en-us/about-mastercard/corp-responsibility/social-sustainability/the-mastercard-labs-for-financial-inclusion.html" href="https://www.mastercard.us/en-us/about-mastercard/corp-responsibility/social-sustainability/the-mastercard-labs-for-financial-inclusion.html">Mastercard Labs for Financial Inclusion</a>
+                            <!-- ngIf: subpage.children -->
+                            <div class="mega-menu__dropdown-divider"></div>
+                        </li><!-- end ngRepeat: subpage in page.children --><li class="sub-menu__item ng-scope" ng-repeat="subpage in page.children" ng-class="{ &#39;has-child-menu&#39;: subpage.children.length }">
+                
+                            <a class="sub-menu-option ng-binding" ng-href="/en-us/about-mastercard/corp-responsibility/social-sustainability/women-empowerment-at-mastercard.html" href="https://www.mastercard.us/en-us/about-mastercard/corp-responsibility/social-sustainability/women-empowerment-at-mastercard.html">Empowering Women</a>
+                            <!-- ngIf: subpage.children -->
+                            <div class="mega-menu__dropdown-divider"></div>
+                        </li><!-- end ngRepeat: subpage in page.children --><li class="sub-menu__item ng-scope" ng-repeat="subpage in page.children" ng-class="{ &#39;has-child-menu&#39;: subpage.children.length }">
+                
+                            <a class="sub-menu-option ng-binding" ng-href="/en-us/about-mastercard/corp-responsibility/social-sustainability/mastercard-modern-slavery-and-human-trafficking-statement.html" href="https://www.mastercard.us/en-us/about-mastercard/corp-responsibility/social-sustainability/mastercard-modern-slavery-and-human-trafficking-statement.html">Mastercard Modern Slavery and Human Trafficking Statement</a>
+                            <!-- ngIf: subpage.children -->
+                            <div class="mega-menu__dropdown-divider"></div>
+                        </li><!-- end ngRepeat: subpage in page.children -->
+                    </ul><!-- end ngIf: subpage.children -->
+                            <div class="mega-menu__dropdown-divider"></div>
+                        </li><!-- end ngRepeat: subpage in page.children --><li class="sub-menu__item ng-scope" ng-repeat="subpage in page.children" ng-class="{ &#39;has-child-menu&#39;: subpage.children.length }">
+                
+                            <a class="sub-menu-option ng-binding" ng-href="/en-us/about-mastercard/corp-responsibility/governance.html" href="https://www.mastercard.us/en-us/about-mastercard/corp-responsibility/governance.html">Governance</a>
+                            <!-- ngIf: subpage.children -->
+                            <div class="mega-menu__dropdown-divider"></div>
+                        </li><!-- end ngRepeat: subpage in page.children --><li class="sub-menu__item ng-scope" ng-repeat="subpage in page.children" ng-class="{ &#39;has-child-menu&#39;: subpage.children.length }">
+                
+                            <a class="sub-menu-option ng-binding" ng-href="/en-us/about-mastercard/corp-responsibility/sustainability.html" href="https://www.mastercard.us/en-us/about-mastercard/corp-responsibility/sustainability.html">Environmental Sustainability</a>
+                            <!-- ngIf: subpage.children -->
+                            <div class="mega-menu__dropdown-divider"></div>
+                        </li><!-- end ngRepeat: subpage in page.children -->
+                    </ul><!-- end ngIf: page.children -->
+                        <!-- ngIf: promoPath -->
+                    </div>
+                            </li>
+                        
+                            <li class="last main-nav-item accessible-megamenu-top-nav-item has-children" ng-class="{ &#39;has-children&#39;: pages[3].children }">
+                
+                                <a href="https://www.mastercard.us/en-us/about-mastercard/careers.html" data-text="Careers" ng-class="{ &#39;active&#39;: isInPath(pages[3].url) }" id="accessible-megamenu-1527747160562-9" aria-haspopup="true" aria-controls="accessible-megamenu-1527747160562-10" aria-expanded="false" class="">
+                                    <span class="mainNav" data-href="">Careers</span>
+                                    <!-- <div class="active-arrow"></div> -->
+                                </a>
+                                <div class="accessible-megamenu-panel mega-menu__dropdown ng-isolate-scope" dropdown="" promo-path="&#39;&#39;" page="pages[3]" id="accessible-megamenu-1527747160562-10" role="group" aria-expanded="false" aria-hidden="true" aria-labelledby="accessible-megamenu-1527747160562-9" style="height: 148px;">
+                        <!-- ngIf: page.children --><ul class="mega-menu__sub-menu--base mega-menu__sub-menu ng-scope ng-isolate-scope" sub-menu="" page="page" ng-if="page.children" style="height: 148px;">
+                        <!-- ngRepeat: subpage in page.children --><li class="sub-menu__item ng-scope" ng-repeat="subpage in page.children" ng-class="{ &#39;has-child-menu&#39;: subpage.children.length }">
+                
+                            <a class="sub-menu-option ng-binding" ng-href="/en-us/about-mastercard/careers/life-at-mastercard.html" href="https://www.mastercard.us/en-us/about-mastercard/careers/life-at-mastercard.html">Life at Mastercard</a>
+                            <!-- ngIf: subpage.children -->
+                            <div class="mega-menu__dropdown-divider"></div>
+                        </li><!-- end ngRepeat: subpage in page.children --><li class="sub-menu__item ng-scope" ng-repeat="subpage in page.children" ng-class="{ &#39;has-child-menu&#39;: subpage.children.length }">
+                
+                            <a class="sub-menu-option ng-binding" ng-href="/en-us/about-mastercard/careers/internships-college-hires.html" href="https://www.mastercard.us/en-us/about-mastercard/careers/internships-college-hires.html">Internships and College Hires</a>
+                            <!-- ngIf: subpage.children -->
+                            <div class="mega-menu__dropdown-divider"></div>
+                        </li><!-- end ngRepeat: subpage in page.children --><li class="sub-menu__item ng-scope" ng-repeat="subpage in page.children" ng-class="{ &#39;has-child-menu&#39;: subpage.children.length }">
+                
+                            <a class="sub-menu-option ng-binding" ng-href="/en-us/about-mastercard/careers/job-postings.html" href="https://www.mastercard.us/en-us/about-mastercard/careers/job-postings.html">Job Postings</a>
+                            <!-- ngIf: subpage.children -->
+                            <div class="mega-menu__dropdown-divider"></div>
+                        </li><!-- end ngRepeat: subpage in page.children -->
+                    </ul><!-- end ngIf: page.children -->
+                        <!-- ngIf: promoPath -->
+                    </div>
+                            </li>
+                        
+                    </ul>
                 </div>
-                <div>
-                    <h2>Modes Review</h2>
-                    <p class="photo-description">
-                        You upload CT scan so AI can analyse it and create an accurate 3D model
-                    </p>
-                    <p class="photo-description">
-                        Base on patient physical parameters, lifestyle, chronic diseases etc, AI designs and 
-                        perfectly fitted implant
-                    </p>
-                    <p class="photo-description">
-                        Surgery results report help to improve AI. Combining IT possibilities and surgery 
-                        experience create a unique technologies
-                    </p>
-                </div>
-                <div>
-                    <h2>Achievements</h2>
-                    <p>
-                        Prototypes breathe life into any design and provide a great deal of insight into the user 
-                        interaction at various levels. Not only do prototypes allow us to test the feasibility and 
-                        usability of our designs before we actually begin writing code, they also lead to unexpected 
-                        discoveries and innovations that may or may not take our project beyond its initial scope.
-                    </p>
-                </div>
-            </div>
+                
+                <script type="text/html" id="mega-menu-dropdown-template">
+                    <div class="mega-menu__dropdown">
+                        <ul sub-menu page="page" ng-if="page.children" class="mega-menu__sub-menu--base"></ul>
+                        <div ng-if="promoPath" class="mega-menu__promo-container"></div>
+                    </div>
+                </script>
+                
+                <script type="text/html" id="mega-menu-sub-menu-template">
+                    <ul class="mega-menu__sub-menu">
+                        <li
+                            class="sub-menu__item"
+                            ng-repeat="subpage in page.children"
+                            ng-class="{ 'has-child-menu': subpage.children.length }">
+                
+                            <a class='sub-menu-option' ng-href="{{subpage.url}}">{{subpage.name}}</a>
+                            <ul sub-menu page="subpage" ng-if="subpage.children"></ul>
+                            <div class="mega-menu__dropdown-divider"></div>
+                        </li>
+                    </ul>
+                </script></div>
+                
+                </nav>
+                
+                        <div style="clear:both;"></div>
+                    </div>
+            </nav>
+        </header>
+        <main>
+
         </main>
         <footer>
-            <div class="bottom-navigation">
-                <div class="previos-case">
-                    <h3>Nominet</h3>
-                    <p>Desktop and mobile application</p>
-                </div>
-                <div class="next-case">
-                    <h3>Patient Access</h3>
-                    <p>Desktop and mobile application</p>
-                </div>
-            </div>
+
         </footer>
         <script src="script.js"></script>
     </body>
